@@ -18,10 +18,16 @@
 
         .navbar {
             background-color: #212529; /*Fondo navbar*/
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra para darle dimensión */
         }
 
         .navbar .nav-link {
             color: #ffffff !important; /*blanco para los enlaces*/
+            transition: color 0.3s; /* Efecto suave al pasar el mouse */
+        }
+        
+        .navbar .nav-link:hover {
+            color: #00d1b2 !important; /* Efecto hover verde neón */
         }
 
         .navbar-toggler-icon {
