@@ -48,6 +48,33 @@
             width: 32px;
             height: 32px;
         }
+
+        .shadow-box {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .shadow-box:hover {
+            transform: scale(1.05); /* Aumenta ligeramente al pasar el mouse */
+        }
+
+        .animate__heartBeat {
+            animation-duration: 2s; /* Animación más suave */
+        }
+
+        button {
+            background-color: #00d1b2; /* Verde neón */
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #00a896; /* Efecto hover */
+        }
     </style>
 </head>
 
@@ -92,7 +119,7 @@
     </div>
 </div>
 
-    <img src="../mi-primer-repo/assets/Images/unnamed.jpg" width="360" height="460" class="d-flex justify-content-center mx-auto mt-4 animate__heartBeat">
+    <img src="../mi-primer-repo/assets/Images/unnamed.jpg" width="360" height="460" class="d-flex justify-content-center mx-auto mt-4 animate__heartBeat shadow-box">
 
         <!--Titulos-->
         <div class="container d-flex flex-column justify-content-center mt-4"> 
