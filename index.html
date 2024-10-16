@@ -2,168 +2,228 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Portfolio</title>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <meta charset="UTF-8"> <!--Esto es para los caracteres especiales, acentos, ñ, etc -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Esto es para que el ancho de la página se adapte a teléfonos-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> <!--Link de bootstrap-->
+    <title>Home</title> <!--Título de la página (el que se ve en la pestaña)-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> <!--Librería de animaciones-->
     <style>
         body {
-            background-color: #b0b0b0; /*Fondo*/
-            color: #343a40; /*Texto*/
+            background: linear-gradient(135deg, #b0b0b0, #343a40); /*Fondo pero con transición entre colores*/
+            color: #343a40; /*Color del texto*/
+            overflow-x: hidden; /*Si hay contenido más ancho que el área visible, se ocultará en lugar de generar desplazamiento horizontal*/
         }
 
         .navbar {
-            background-color: #212529; /*Fondo navbar*/
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Sombra para darle dimensión */
-        }
-
-        .navbar .nav-link {
-            color: #ffffff !important; /*blanco para los enlaces*/
-            transition: color 0.3s; /* Efecto suave al pasar el mouse */
+            background-color: #212529;  /*Color del fondo del navar*/
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /*Sombra*/
         }
         
+        .navbar .nav-link {
+            color: #ffffff !important; /*Color letra*/
+            transition: color 0.3s ease; /*Transición para el cambio de color*/
+        }
+
         .navbar .nav-link:hover {
-            color: #00d1b2 !important; /* Efecto hover verde neón */
+            color: #00d1b2 !important; /*Transición del color cuando pones el mouse encima de los títulos del navar*/
         }
 
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-            /* Botón de toggler personalizado en blanco */
-        }
-
-        /*Enlaces en el dropdown*/
         .dropdown-menu {
-            background-color: #343a40;
+            background-color: #343a40; /*Fondo del dropdown*/
         }
 
         .dropdown-menu a {
-            color: #c4bebe !important; /*Color items del dropdown*/
+            color: #c4bebe !important; /* Color items del dropdown */
+        }
+        
+        /*Sección Principal*/
+        /*Utilizo hero para que se vea mejor, más llamativo*/
+        .hero {
+            text-align: center;
+            padding: 50px 0;
+            background: rgba(0, 0, 0, 0.6); /*Fondo donde esta la imagen*/
+            color: white; /*Color del texto*/
+            animation: fadeIn 1.5s ease; /*Animación de entrada*/
         }
 
-        /*Espaciado, para evitar que los elementos se peguen al borde */
-        .container {
-            padding: 0 15px;
+        .hero img {
+            width: 150px; 
+            border-radius: 50%; /*Borde redondo para la imagen*/
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /*Sombra alrededor de la imagen*/
         }
 
-        /*Ajuste del tamaño del logo para que sea más visible*/
-        .navbar-brand img {
-            width: 32px;
-            height: 32px;
+        .hero h1 {
+            font-size: 2.5rem; /*Tamaño del titulo (Diego Navarro Sánchez)*/
+            margin-top: 20px; /*Separación entre el título y la imagen*/
         }
 
-        .shadow-box {
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+        .hero p {
+            font-size: 1.2rem; /*Tamaño del texto*/
+            margin-top: 10px; /*Separación entre el texto y el título*/
+            max-width: 600px; /*Ancho máximo del parrafo*/
+            margin: 10px auto; /*Esto define márgenes automáticos al lado izquierdo y derecho del texto, o sea que centra el texto horizontalmente en su contenedor*/
+            line-height: 1.6; /*Espacio entre líneas*/
         }
 
-        .shadow-box:hover {
-            transform: scale(1.05); /*Aumenta ligeramente al pasar el mouse*/
+        .card-container {
+            display: flex; /*Esto es para el diseño de tarjeta*/
+            justify-content: center; /*Centra las tarjetas en el contenedor*/
+            gap: 20px; /*Espacio entre las tarjetas*/
+            margin-top: 40px; /*Espacio superior de antes de las tarjetas*/
+            padding-bottom: 50px; /*Espacio inferior de después de las tarjetas*/
         }
 
-        .animate__heartBeat {
-            animation-duration: 2s; /*Animación más suave*/
+        .card {
+            background-color: #f8f9fa; /*Color de fondo de la tarjeta*/
+            border-radius: 15px; /*Bordes redondos para la tarjeta*/
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /*Sombra de la tarjeta*/
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /*Transición para el efecto hover*/
+            width: 300px; /*Separación del texto con el top de la tarjeta*/
+            padding: 20px; /*Separación entre la información (Interlineado)*/
         }
 
-        button {
-            background-color: #00d1b2;
-            border: none;
-            padding: 10px 20px;
-            color: white;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+        .card:hover {
+            transform: translateY(-10px) scale(1.05); /*Efecto que agranda la tarjeta cuando pasas el mouse por encima*/
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /*Aumenta la sombra al pasar el mouse*/
         }
 
-        button:hover {
-            background-color: #00a896; /*Efecto hover*/
+        .card h3 {
+            font-size: 1.5rem; /*Tamaño del título*/
+            margin-bottom: 15px; /*Espacio inferior del título*/
+            color: #343a40; /*Color del texto del título*/
+        }
+
+        .card ul {
+            list-style: disc; /*Viñeta*/ 
+            padding: 10px; /*Separación horizontal de la viñeta*/
+        }
+
+        .card ul li {
+            font-size: 1.1rem; /*Tamaño del texto de la lista en la tarjeta*/
+            padding: 5px 0; /*Espaciado superior e inferior de cada elemento del texto*/
+        }
+
+        footer { /*Pie de página*/
+            background-color: #212529; /*Color del fondo del pie de página*/
+            color: white; /*Color de la letra*/
+            text-align: center; /*Alinear la inormación al centro*/
+            padding: 20px 0; /*Espacio superior e inferior*/
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn { 
+            0% {
+                opacity: 0; /*Comienza completamente transparente*/
+                transform: translateY(30px); /*Se inicia desde abajo*/ 
+            }
+            100% {
+                opacity: 1; /*Termina completamente visible*/
+                transform: translateY(0); /*Se alinea en su posición original*/
+            }
+        }
+
+        .animate-fadeInLeft { 
+            animation: fadeInLeft 1s ease; /*Anima la entrada desde la izquierda*/
+        }
+
+        .animate-fadeInRight {
+            animation: fadeInRight 1s ease; /*Anima la entrada desde la derecha*/
+        }
+
+        @keyframes fadeInLeft {
+            0% {
+                opacity: 0; /*Comienza completamente transparente*/
+                transform: translateX(-50px); /*Se inicia desde la izquierda*/
+            }
+            100% {
+                opacity: 1; /*Termina completamente visible*/
+                transform: translateX(0); /*Se alinea a su posición original*/
+            }
+        }
+
+        @keyframes fadeInRight {
+            0% {
+                opacity: 0; /*Comienza completamente transparente*/
+                transform: translateX(50px); /*Se inicia desde la derecha*/
+            }
+            100% {
+                opacity: 1; /*Termina completamente visible*/
+                transform: translateX(0); /*Se alinea en su posición original*/
+            }
         }
     </style>
 </head>
 
 <body>
+    <!--Navbar-->
     <nav class="navbar navbar-expand-lg p-2">
-        <div class="container d-flex justify-content-center">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="C:\Users\godhi\OneDrive\Escritorio\Ing\primer repo\mi-primer-repo\assets\Images\usuario.png" alt="Logo">
+        <div class="container d-flex justify-content-center"> <!--Centrar contenido -->
+            <a class="navbar-brand" href="#"> <!--Link del logo-->
+                <img src="C:\Users\godhi\OneDrive\Escritorio\Ing\primer repo\mi-primer-repo\assets\Images\usuario.png" alt="Logo" width="32"> <!--Logo del navbar-->
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item h6 fw-bold">
-                        <a class="nav-link" href="#">Home</a>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav"> <!--Lista de enlaces-->
+                    <li class="nav-item"> 
+                        <a class="nav-link h5" href="../mi-primer-repo/index.html">Home</a> <!--Enlace a la página de inicio-->
                     </li>
-                    <li class="nav-item h6 fw-bold">
-                        <a class="nav-link" href="https://www.instagram.com/_godhi_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <li class="nav-item">
+                        <a class="nav-link h5" href="https://www.instagram.com/_godhi_/" target="_blank">Instagram</a> <!--Enlace a la página Instagram-->
                     </li>
-                    <li class="nav-item dropdown h6 fw-bold">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Tareas
+                    <li class="nav-item dropdown"> <!--Dropdown (Lo que al pulsar en el se abre una selección)-->
+                        <a class="nav-link dropdown-toggle h5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Tareas <!--Nombre del dropdown (La opción que se ve al lado de Instagram y al que después de pulsar en él se abre la selección)-->
                         </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../mi-primer-repo/Presentacion/presentacion.html">Presentación</a></li>
-                                <li><a class="dropdown-item" href="../mi-primer-repo/index_t1tarea2.html" target="_blank" rel="noopener noreferrer">Primer página</a></li>
-                                <li><a class="dropdown-item" href="../mi-primer-repo/git/git.html">GitHub</a></li>
-                                <li><a class="dropdown-item" href="../mi-primer-repo/vr/vr.html">Realidad Virtual</a></li>
-                                <li><a class="dropdown-item" href="">Escaneo</a></li>
-                            </ul>
+                        <ul class="dropdown-menu"> <!--Las opciones que vienen dentro del dropdown (La selección)-->
+                            <li><a class="dropdown-item" href="../mi-primer-repo/Presentacion/presentacion.html">Presentación</a></li> <!--Nombre de un apartado del dropdown-->
+                            <li><a class="dropdown-item" href="../mi-primer-repo/index_t1tarea2.html" target="_blank" rel="noopener noreferrer">Primer página</a></li>  <!--Nombre de un apartado del dropdown-->
+                            <li><a class="dropdown-item" href="../mi-primer-repo/git/git.html">GitHub</a></li>  <!--Nombre de un apartado del dropdown-->
+                            <li><a class="dropdown-item" href="../mi-primer-repo/vr/vr.html">VR | AR</a></li>  <!--Nombre de un apartado del dropdown-->
+                            <li><a class="dropdown-item" href="../mi-primer-repo/Scan/scan.html">Scan 3D</a></li>
+                            <li><a class="dropdown-item" href="../mi-primer-repo/Framework/framework.html">Framework</a></li>  <!--Nombre de un apartado del dropdown-->
+                        </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="row shadow-box">
-            <div class="h3 fw-bold col-md-12 d-flex justify-content-center mt-3 p-3 bg-dark text-white animate__heartBeat">Diego Navarro Sánchez</div>
+    <!--Sección Principal-->
+    <section class="hero">
+        <img src="../mi-primer-repo/assets/Images/YO.jpg" alt="Foto de Diego (YO)" class="animate__animated animate__zoomIn"> <!--Mi foto con una animación de zoom-->
+        <h1 class="animate__animated animate__fadeInDown">Diego Navarro Sánchez</h1> <!--Mi nombre con una animación de desvanecimiento hacia abajo-->
+        <p class="animate__animated animate__fadeInUp">¡Hola! Soy Diego, tengo 17 años y soy de Guadalajara. Desde que armé mi propia PC, me di cuenta que el mundo de la tecnología me fascina. Estudio Ingeniería en Sistemas porque creo que es la base de todo.</p> <!--El texto con una animación de desvanecimiento para arriba-->
+    </section>
+
+    <!--Tarjetas de Hobbies y Gustos-->
+    <div class="card-container">
+        <div class="card animate-fadeInLeft"> <!--Animación para de desvanecimiento hacia la derecha-->
+            <h3>Hobbies</h3>
+            <ul>
+                <li>Jugar Videojuegos</li>
+                <li>Escuchar Música</li>
+                <li>Jugar Futbol</li>
+                <li>Hacer Gym</li>
+                <li>Programar</li>
+                <li>Estudiar</li>
+            </ul>
+        </div>
+
+        <div class="card animate-fadeInRight"> <!--Animación para desvanecimiento hacia la izquierda-->
+            <h3>Gustos</h3>
+            <ul>
+                <li>Edición de Videos</li>
+                <li>Videojuegos</li>
+                <li>Programar</li>
+                <li>Películas</li>
+                <li>Música</li>
+            </ul>
         </div>
     </div>
 
-    <div class="container">
-        <div class="h5 fw-bold col-md-12 d-flex justify-content-center mt-4">¡Hola! Soy Diego, tengo 17 años y soy de Guadalajara. Desde que me compré y armé mi pc, me di cuenta que el mundo de la tecnologia me gustaba mucho por lo qué decidí estudiar Ingeniería en Sistemas porque siento que es la base de todo.
-        </div>
-    </div>
-
-    <img src="../mi-primer-repo/assets/Images/unnamed.jpg" width="360" height="460" class="d-flex justify-content-center mx-auto mt-4 animate__heartBeat shadow-box">
-
-        <!--Titulos-->
-<div class="container d-flex flex-column justify-content-center mt-4"> 
-     <div class="row w-100 mb-6 bg-dark text-light shadow-box"> 
-        <div class="h3 fw-bold col-md-6 d-flex justify-content-center p-3">Hobbies</div>
-            <div class="h3 fw-bold col-md-6 d-flex justify-content-center p-3">Gustos</div>
-    </div>
-</div>
-        
-        <div class="container">
-            <div class="row">
-                <div class="h5 fw-bold col-md-6 d-flex justify-content-left p-3">
-                    <ul>
-                        <li>Jugar Videojuegos</li>
-                        <li>Escuchar Música</li>
-                        <li>Jugar Futbol</li>
-                        <li>Hacer Gym</li>
-                        <li>Programar</li>
-                        <li>Estudiar</li>
-                    </ul>
-                </div>
-                <div class="h5 fw-bold col-md-6 d-flex justify-content-left p-3">
-                    <ul>
-                        <li>Edición de Videos</li>
-                        <li>Videojuegos</li>
-                        <li>Programar</li>
-                        <li>Películas</li>
-                        <li>Música</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-   
-
+    <!--Footer-->
+    <footer> <!--Pie de página-->
+        <p>&copy; 2024 Diego Navarro Sánchez. Todos los derechos reservados.</p> <!--Derechos del autor, o sea, yo :)-->
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
