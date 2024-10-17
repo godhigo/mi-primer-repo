@@ -43,4 +43,32 @@ int main() {
             }
         }
 
-       
+        //Verificar si la letra fue encontrada
+        if (!letraEncontrada) {
+            intentosRestantes--; //Restar un intento si la letra no está
+            cout << "¡Incorrecto! La letra no esta en la palabra." << endl;
+        } else {
+            cout << "¡Correcto! La letra esta en la palabra." << endl;
+        }
+
+        //Verificar si el jugador ha adivinado la palabra
+        bool adivinada = true;
+        for (int i = 0; i < longitudPalabra; ++i) {
+            if (!letrasAdivinadas[i]) {
+                adivinada = false; //Si hay una letra que no ha sido adivinada
+                break;
+            }
+        }
+
+        if (adivinada) {
+            cout << "¡Felicidades! Has adivinado la palabra: " << palabraSecreta << endl;
+            break;
+        }
+    }
+
+    if (intentosRestantes == 0) {
+        cout << "¡Game over! La palabra era: " << palabraSecreta << endl;
+    }
+
+    return 0;
+}
